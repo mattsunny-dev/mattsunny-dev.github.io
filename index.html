@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Matt Sunday · Web Designer & Developer, Ibadan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1F3F8; --panel:#FFFFFF; --text:#15203F; --muted:#56607D; --line:#D5DAE8;
+  --indigo:#17245A; --roof:#B4492A; --roof2:#8E3519; --sun:#F2B632; --chalk:#F1F3F8;
+  --display:"Bricolage Grotesque",Georgia,serif; --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0E1531;--panel:#16204A;--text:#EBEFFA;--muted:#A3ADCC;--line:#27335F;}
+}
+:root[data-theme="dark"]{--bg:#0E1531;--panel:#16204A;--text:#EBEFFA;--muted:#A3ADCC;--line:#27335F;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.05rem/1.65 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+
+/* Hero */
+.hero{background:var(--indigo);color:var(--chalk);position:relative;overflow:hidden;
+  background-image:radial-gradient(circle at 12px 12px,rgba(241,243,248,.10) 2px,transparent 3px),radial-gradient(circle at 36px 36px,rgba(241,243,248,.06) 5px,transparent 6px);
+  background-size:48px 48px}
+.hero .wrap{padding-top:4.5rem;padding-bottom:13rem;position:relative;z-index:1}
+.hero p.place{margin:0 0 1rem;color:var(--sun);font-weight:600}
+h1{font:800 clamp(2.6rem,9vw,5.6rem)/.98 var(--display);margin:0 0 1.25rem;letter-spacing:-.02em}
+.hero .lead{max-width:34rem;font-size:1.2rem;color:#D9DFF3;margin:0 0 2rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{display:inline-block;padding:.85rem 1.4rem;border-radius:.5rem;font-weight:600;text-decoration:none}
+.btn.main{background:var(--sun);color:#1a1a1a}
+.btn.alt{border:2px solid rgba(241,243,248,.5);color:var(--chalk)}
+.roofs{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:11rem;display:block}
+
+/* Sections */
+section{padding:4rem 0}
+h2{font:800 clamp(1.8rem,5vw,2.6rem)/1.1 var(--display);margin:0 0 1.5rem;letter-spacing:-.01em}
+.narrow{max-width:40rem}
+.grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.card{background:var(--panel);border:1px solid var(--line);border-left:6px solid var(--roof);padding:1.25rem 1.4rem;border-radius:.25rem}
+.card h3{font:800 1.25rem/1.2 var(--display);margin:0 0 .5rem}
+.card p{margin:0;color:var(--muted)}
+.tag{display:inline-block;margin-top:.9rem;font-size:.85rem;font-weight:600;color:var(--roof2);border:1px solid var(--roof);padding:.1rem .6rem;border-radius:99px}
+:root[data-theme="dark"] .tag{color:#F0A184}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tag{color:#F0A184}}
+.price{display:block;margin-top:.9rem;font:800 1.35rem var(--display)}
+.note{margin:1.5rem 0 0;color:var(--muted);font-size:.95rem}
+.skills{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.skills h3{font:800 1.1rem var(--display);margin:0 0 .4rem}
+.skills ul{margin:0;padding-left:1.1rem;color:var(--muted)}
+.band{background:var(--panel);border-block:1px solid var(--line)}
+
+/* Contact */
+.contact a.big{display:inline-block;font:800 clamp(1.2rem,4.5vw,2rem) var(--display);border-bottom:4px solid var(--sun);text-decoration:none;word-break:break-all}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.95rem}
+.theme{position:absolute;top:1rem;right:1rem;z-index:2;background:transparent;color:var(--chalk);border:2px solid rgba(241,243,248,.4);border-radius:.5rem;padding:.4rem .8rem;font:600 .9rem var(--body);cursor:pointer}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <button class="theme" id="theme" type="button" aria-label="Switch light or dark theme">Theme</button>
+  <svg class="roofs" id="roofs" viewBox="0 0 1200 176" preserveAspectRatio="none" aria-hidden="true"></svg>
+  <div class="wrap">
+    <p class="place">Ibadan, Nigeria</p>
+    <h1>Dada Oluwapelumi Sunday</h1>
+    <p class="lead">I'm Matt, a Computer Science student at the University of Ibadan. I build clean, fast websites for small businesses, creatives and personal brands.</p>
+    <div class="btns">
+      <a class="btn main" href="#work">See my work</a>
+      <a class="btn alt" href="#contact">Hire me</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="wrap narrow">
+    <h2>About me</h2>
+    <p>I study Computer Science at the University of Ibadan and build websites with HTML, CSS and JavaScript. Before coding, I worked in customer service and management support, so I know how to listen to a client, keep to deadlines and explain things without jargon.</p>
+    <p>Ibadan is home, and its rust-red rooftops and adire indigo are the colours of this page.</p>
+  </div>
+</section>
+
+<section id="services" class="band">
+  <div class="wrap">
+    <h2>What I can build for you</h2>
+    <div class="grid">
+      <div class="card"><h3>Portfolio sites</h3><p>A simple page that shows your work and makes it easy for people to contact you.</p><span class="price">From $200</span></div>
+      <div class="card"><h3>Landing pages</h3><p>One focused page for a business, event or product, built to load fast on any phone.</p><span class="price">From $300</span></div>
+      <div class="card"><h3>Mobile-friendly fixes</h3><p>I can update an existing site so it reads well on small screens.</p><span class="price">From $100</span></div>
+    </div>
+    <p class="note">Prices are starting points. The final price depends on the number of pages and features. Domain and hosting are paid separately.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Work</h2>
+    <div class="grid">
+      <div class="card"><h3>This portfolio</h3><p>Responsive, light and dark themes, and no frameworks. Plain HTML, CSS and a little JavaScript.</p><span class="tag">Web design</span></div>
+      <div class="card"><h3>Cramer's Rule solver</h3><p>A Java program that solves systems of linear equations using object-oriented classes.</p><span class="tag">Java · coursework</span></div>
+      <div class="card"><h3>Supermarket invoice</h3><p>A Java program that loops through purchased items and calculates the invoice total.</p><span class="tag">Java · coursework</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="band">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div><h3>Web</h3><ul><li>HTML and CSS</li><li>JavaScript (learning)</li><li>Responsive layout</li></ul></div>
+      <div><h3>Programming</h3><ul><li>Java (OOP)</li><li>Python</li><li>Debugging</li></ul></div>
+      <div><h3>Working with clients</h3><ul><li>Clear communication</li><li>Customer service experience</li><li>Reliable on deadlines</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap narrow">
+    <h2>Let's work together</h2>
+    <p>Tell me what you need and when you need it. I'll reply with a plan and a price.</p>
+    <p><a class="big" href="mailto:mattcory742@gmail.com">mattcory742@gmail.com</a></p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Built in Ibadan by Matt Sunday.</div></footer>
+
+<script>
+// Ibadan rooftops: rust-red roofs in layers
+(function(){
+  var svg=document.getElementById('roofs'),s=7,out='';
+  function r(){s=(s*9301+49297)%233280;return s/233280}
+  var layers=[{y:176,h:70,c:'#8E3519',o:.75},{y:176,h:48,c:'#B4492A',o:1}];
+  layers.forEach(function(L){
+    var x=-20,d='M-20 176 ';
+    while(x<1220){
+      var w=50+r()*70,h=L.h*(.45+r()*.55);
+      d+='L'+x+' '+(176-h*.55)+' L'+(x+w/2)+' '+(176-h)+' L'+(x+w)+' '+(176-h*.55)+' ';
+      x+=w;
+    }
+    d+='L1220 176 Z';
+    out+='<path d="'+d+'" fill="'+L.c+'" opacity="'+L.o+'"/>';
+  });
+  svg.innerHTML=out;
+})();
+// Theme switch
+(function(){
+  var b=document.getElementById('theme'),root=document.documentElement;
+  b.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme',dark?'light':'dark');
+  });
+})();
+</script>
+</body>
+</html>
